@@ -1,0 +1,20 @@
+<ion-view view-title="Chat">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="message in messages">
+        {{message.user}}さん : {{message.text}}
+      </ion-item>
+    </ion-list>
+
+    <div class="list">
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="送信メッセージ" ng-model="sendData.text">
+        </label>
+        <button class="button button-small" ng-click="sendMessage()">
+          送信
+        </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
