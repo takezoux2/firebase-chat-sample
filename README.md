@@ -34,8 +34,8 @@ ionic run ios
 ### index.htmlを修正して、firebaseを追加
 
 ```www/index.html
-# Firebaseの参照を追加
-# www/index.htmlに追加
+<!-- Firebaseの参照を追加 -->
+<!-- www/index.htmlに追加 -->
 <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 ```
 
@@ -54,7 +54,7 @@ angular.module('starter.configs', [])
 ### index.htmlに認証情報も追加
 
 ```www/index.html
-// configを追加
+<!-- configを追加 -->
 <script src="js/config.js"></script>
 ```
 
@@ -165,7 +165,7 @@ $scope.doLogin = function() {
 
         });
       }else{
-        // 他のゲインのエラーの場合は、メッセージを出す
+        // 他の原因のエラーの場合は、メッセージを出す
         $ionicPopup.alert({
           title: 'ログイン失敗',
           template: errorCode + ":" + errorMessage
@@ -181,6 +181,7 @@ $scope.doLogin = function() {
 ### チャットメッセージの表示
 
 www/templates/chat.htmlファイルを作成
+
 ng-repeatで、配列の要素を並べて表示出来る
 
 ```www/templates/chat.html
