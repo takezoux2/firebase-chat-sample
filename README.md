@@ -33,7 +33,8 @@ ionic run ios
 
 ### index.htmlを修正して、firebaseを追加
 
-```www/index.html
+```html
+www/index.html
 <!-- Firebaseの参照を追加 -->
 <!-- www/index.htmlに追加 -->
 <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
@@ -42,7 +43,8 @@ ionic run ios
 ### firebaseへ接続するための認証情報を設定
 
 www/js/config.jsファイルを作成
-```config.js
+```javascript
+config.js
 angular.module('starter.configs', [])
 
 // 認証情報は、Firebaseのコンソールから取得
@@ -53,14 +55,16 @@ angular.module('starter.configs', [])
 
 ### index.htmlに認証情報も追加
 
-```www/index.html
+```html
+www/index.html
 <!-- configを追加 -->
 <script src="js/config.js"></script>
 ```
 
 ### モジュールに、config情報を使えるように依存を指定
 
-```www/js/controllers.js
+```javascript
+www/js/controllers.js
 // 1行目にconfigsの依存を追加
 angular.module('starter.controllers', ["starter.configs"])
 // controllerの引数にCONFIGを追加
@@ -70,7 +74,8 @@ angular.module('starter.controllers', ["starter.configs"])
 ### firebaseの設定
 
 
-```www/js/controllers.js
+```javascript
+www/js/controllers.js
 
   // 初期化
   firebase.initializeApp(CONFIG);
@@ -89,7 +94,8 @@ Firebaseでメールによる認証を有効化しておく
 
 ng-clickで、クリックしたときに実行するメソッドを指定
 
-```www/templates/menu.html
+```html
+www/templates/menu.html
   <ion-side-menu side="left">
     <ion-header-bar class="bar-stable">
       <h1 class="title">Menu</h1>
@@ -111,7 +117,8 @@ ng-clickで、クリックしたときに実行するメソッドを指定
 
 ### ログイン状態を取得する
 
-```www/js/controller.js
+```javascript
+www/js/controller.js
   // 認証情報を取得
   // ログインした場合にもこれが実行される
   firebase.auth().onAuthStateChanged(function(user) {
@@ -127,7 +134,7 @@ ng-clickで、クリックしたときに実行するメソッドを指定
 ### ログイン処理
 
 
-```
+```javascript
 $scope.doLogin = function() {
 
     // 本当は、アカウント作成と、再ログインに分けたほうが良い
@@ -184,7 +191,8 @@ www/templates/chat.htmlファイルを作成
 
 ng-repeatで、配列の要素を並べて表示出来る
 
-```www/templates/chat.html
+```html
+www/templates/chat.html
 <ion-view view-title="Chat">
   <ion-content>
     <ion-list>
@@ -209,7 +217,8 @@ ng-repeatで、配列の要素を並べて表示出来る
 
 また、メニューでログイン以外は不要なので消しておき、デフォルトの画面を、今作ったchat.htmlにしておく
 
-```www/js/app.js
+```javascript
+www/js/app.js
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -235,7 +244,8 @@ ng-repeatで、配列の要素を並べて表示出来る
 
 ### 送信データと、チャットメッセージのための変数を用意
 
-```www/js/controllers.js
+```javascript
+www/js/controllers.js
 
 
   // チャットで送信するデータ
@@ -247,7 +257,8 @@ ng-repeatで、配列の要素を並べて表示出来る
 
 ### メッセージを送信するメソッドを追加
 
-```www/js/controllers.js
+```javascript
+www/js/controllers.js
 
   // チャットの文章を送るメソッド
   $scope.sendMessage = function() {
@@ -275,7 +286,8 @@ ng-repeatで、配列の要素を並べて表示出来る
 
 データに変更があった場合に、その通知を受け取れるようにする
 
-```www/js/controllers.js
+```javascript
+www/js/controllers.js
 
   // データベースの変更を検知する
   // データが更新されるたびに呼び出される
